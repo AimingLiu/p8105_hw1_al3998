@@ -1,0 +1,74 @@
+---
+title: "p8105_hw1_al3998"
+author: "AimingLiu"
+date: "9/14/2019"
+output: github_document
+---
+# Problem 1
+
+This is the first code chunk for Problem 1
+
+```{r}
+library(tidyverse)
+
+pr_df=tibble(
+   ra_sample = rnorm(8),
+    gr_th_0 = ra_sample>0,
+    var_char = c("This","is","my","eight","characters","in","problem","one"),
+    var_fac = factor(c("child","adult","elder","adult","elder","adult","child","adult"),levels=c("child","adult","elder"))
+)
+```
+
+Here is the second chunk in problem 1.
+```{r}
+#convert the logical vector to numeric, and multiply the random sample by the result#
+gr_th_0_num = as.numeric(pr_df$gr_th_0)
+prod(gr_th_0_num)
+
+#convert the logical vector to a factor, and multiply the random sample by the result#
+gr_th_0_fac = as.factor(pr_df$gr_th_0)
+#gr_th_0_fac_pr = prod(gr_th_0_fac)#
+
+#convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result#
+gr_th_0_facnum = as.numeric(gr_th_0_fac)
+prod(gr_th_0_facnum)
+```
+
+# Problem 2
+This is the code chunk for problem 2
+```{r}
+pr2_df=tibble(
+  x = rnorm(500),
+  y = rnorm(500),
+  gr_th_1 = x+y>1,
+  gr_th_1_num = as.numeric(gr_th_1),
+  gr_th_1_fac = as.factor(gr_th_1)
+)
+```
+The size of the data set can be described through the row and column of it.The column of the data set is `r ncol(pr2_df)` and the row of the data set is `r nrow(pr2_df)`.
+
+The mean of x can be described as `r mean(pr2_df$x)`.
+The median of x can be described as `r median(pr2_df$x)`.
+The standard deviation of x can be described as `r sd(pr2_df$x)`.
+
+The proportion of cases for which x+y>1 can be described as `r sum(pr2_df$gr_th_1)/length(pr2_df$gr_th_1)`.
+
+### The scatterplot of y vs x
+```{r}
+ggplot(pr2_df,aes(x=x,y=y))+geom_point(aes(color=gr_th_1))
+```
+
+### The scatterplot of numeric variables
+```{r}
+ggplot(pr2_df,aes(x=x,y=y))+geom_point(aes(color=gr_th_1_num))
+```
+
+### The scatterplot of factor variables
+```{r}
+ggplot(pr2_df,aes(x=x,y=y))+geom_point(aes(color=gr_th_1_fac))
+```
+
+```{r}
+logical_plot=ggplot(pr2_df,aes(x=x,y=y))+geom_point(aes(color=gr_th_1))
+ggsave("scatterplot1.pdf",logical_plot,height = 8,width = 5)
+```
