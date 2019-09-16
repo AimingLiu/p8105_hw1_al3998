@@ -23,15 +23,15 @@ Here is the second chunk in problem 1.
 ```{r}
 #convert the logical vector to numeric, and multiply the random sample by the result#
 gr_th_0_num = as.numeric(pr_df$gr_th_0)
-prod(gr_th_0_num)
+(gr_th_0_num)*(pr_df$ra_sample)
 
 #convert the logical vector to a factor, and multiply the random sample by the result#
 gr_th_0_fac = as.factor(pr_df$gr_th_0)
-#gr_th_0_fac_pr = prod(gr_th_0_fac)#
+(gr_th_0_fac)*(pr_df$ra_sample)
 
 #convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result#
 gr_th_0_facnum = as.numeric(gr_th_0_fac)
-prod(gr_th_0_facnum)
+(gr_th_0_facnum)*(pr_df$ra_sample)
 ```
 
 # Problem 2
