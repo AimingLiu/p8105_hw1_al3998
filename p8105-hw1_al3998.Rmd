@@ -18,7 +18,15 @@ pr_df=tibble(
     var_fac = factor(c("child","adult","elder","adult","elder","adult","child","adult"),levels=c("child","adult","elder"))
 )
 ```
+#Take the mean
+The variable ra_sample has a mean of `r mean(pull(pr_df,ra_sample))`,and the variable gr_th_0 has a mean of `r mean(pull(pr_df,gr_th_0))`.
+The mean of variable `var_char` is `r mean(pull(pr_df,var_char))`,the mean of variable `var_fac` is `r mean(pull(pr_df,var_fac))`
 
+```{r convert types,eval = FALSE}
+as.numeric(pull(pr_df,gr_th_0))
+as.numeric(pull(pr_df,var_char))
+as.numeric(pull(pr_df,var_fac))
+```
 Here is the second chunk in problem 1.
 ```{r}
 #convert the logical vector to numeric, and multiply the random sample by the result#
