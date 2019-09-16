@@ -1,7 +1,7 @@
 ---
 title: "p8105_hw1_al3998"
 author: "AimingLiu"
-date: "9/14/2019"
+date: "9/15/2019"
 output: github_document
 ---
 # Problem 1
@@ -22,16 +22,16 @@ pr_df=tibble(
 Here is the second chunk in problem 1.
 ```{r}
 #convert the logical vector to numeric, and multiply the random sample by the result#
-gr_th_0_num = as.numeric(pr_df$gr_th_0)
-(gr_th_0_num)*(pr_df$ra_sample)
+gr_th_0_num = as.numeric(pull(pr_df,gr_th_0))
+(gr_th_0_num)*(pull(pr_df,ra_sample))
 
 #convert the logical vector to a factor, and multiply the random sample by the result#
-gr_th_0_fac = as.factor(pr_df$gr_th_0)
-(gr_th_0_fac)*(pr_df$ra_sample)
+gr_th_0_fac = as.factor(pull(pr_df,gr_th_0))
+(gr_th_0_fac)*(pull(pr_df,ra_sample))
 
 #convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result#
 gr_th_0_facnum = as.numeric(gr_th_0_fac)
-(gr_th_0_facnum)*(pr_df$ra_sample)
+(gr_th_0_facnum)*(pull(pr_df,ra_sample))
 ```
 
 # Problem 2
@@ -47,11 +47,11 @@ pr2_df=tibble(
 ```
 The size of the data set can be described through the row and column of it.The column of the data set is `r ncol(pr2_df)` and the row of the data set is `r nrow(pr2_df)`.
 
-The mean of x can be described as `r mean(pr2_df$x)`.
-The median of x can be described as `r median(pr2_df$x)`.
-The standard deviation of x can be described as `r sd(pr2_df$x)`.
+The mean of x can be described as `r mean(pull(pr2_df,x))`.
+The median of x can be described as `r median(pull(pr2_df,x))`.
+The standard deviation of x can be described as `r sd(pull(pr2_df,x))`.
 
-The proportion of cases for which x+y>1 can be described as `r sum(pr2_df$gr_th_1)/length(pr2_df$gr_th_1)`.
+The proportion of cases for which x+y>1 can be described as `r sum(pull(pr2_df,gr_th_1))/length(pull(pr2_df,gr_th_1))`.
 
 ### The scatterplot of y vs x
 ```{r}
