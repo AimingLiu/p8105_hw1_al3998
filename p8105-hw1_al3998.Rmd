@@ -28,11 +28,11 @@ as.numeric(pull(pr_df,var_char))
 as.numeric(pull(pr_df,var_fac))
 ```
 
-When converting logical values into numeric values,the logical value `True` takes the numeric value `1` and `False` takes the numeric value `0`.
+When converting logical values into numeric values,the logical value `True` takes the numeric value `1` and `False` takes the numeric value `0`.When calculating the mean of logical values,R converts them to `1` and `0`.
 
 When converting character value into numeric ones,the character variables in this data frame are consisted of letters which may lead to `NA` when converting them to numeric value.Then,when we take the mean of them,the result will be `NA`.
 
-When converting factor values into numeric ones,the different levels may be converted into `1`,`2` and `3`.
+When converting factor values into numeric ones,the different levels may be converted into `1`,`2` and `3`.And here,when we take the mean,it also shows`NA` because that this assignment of value is not universal.
 
 Here is the second chunk in problem 1.
 ```{r}
